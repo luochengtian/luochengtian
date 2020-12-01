@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)file:///D:/nginx-1.18.0/html/lzy5.html# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Title</title>
+<style>
+     .container{
+                width:960px;
+                height:450px;
+                margin:60px auto;
+                position:relative;
+            }
+     
+            .container img{
+                padding:10px 10px 15px;
+                background:white;
+                border:1px solid #ddd;
+                box-shadow:2px 2px 3px rgba(50, 50, 50, 0.4);
+                -webkit-transition:all 0.5s ease-in;
+                -moz-transition:all 0.5s ease-in;
+                transition:all 0.5s ease-in;
+                position:absolute;
+                z-index:1;
+            }
+     
+            .container img:hover{
+                box-shadow:15px 15px 20px rgba(50, 50, 50, 0.4);
+                -webkit-transform:rotate(0deg) scale(1.20);
+                -moz-transform:rotate(0deg) scale(1.20);
+                transform:rotate(0deg) scale(1.20);
+                z-index:2;
+            }
+     
+            .pic1{
+                left: 400px;
+                top: 0;
+                -webkit-transform: rotate(-5deg);
+                -moz-transform: rotate(-5deg);
+                transform: rotate(-5deg);
+            }
+     
+            .pic2{
+                top: 0;
+                left: 600px;
+                -webkit-transform: rotate(-20deg);
+                -moz-transform: rotate(-20deg);
+                transform: rotate(-20deg);
+            }
+    * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 320px;
+            height: 427px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 375px;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            left: 330px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .big img {
+            position: absolute;
+        }
+
+        .mask {
+            width: 186px;
+            height: 250px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+        }
+    html {
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    aside {
+        float: left;
+        width: 50%;
+        height: 80%;
+    }
+
+    section {
+        float: right;
+        width: 50%;
+        height: 100%;
+        background-color: rgba(241, 240, 211, 0.822);
+        overflow: scroll;
+    }
+    #AD {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+        }
+        footer{
+        width: 100%;
+        height: 50px;
+        background-color: rgba(239, 241, 211, 0.671);
+        overflow: scroll;
+    }
+</style></head>
+
+<body background="./Title_files/t019647a6237a71b56c.jpg">
+
+    <div class="container" >
+        <img  class="pic pic1" src="IMG_20201005_001645.jpg" alt="" width="250px">
+        <img  class="pic pic2" src="IMG_20201005_002140.jpg" alt="" width="250px">
+      </div>   
+<aside>
+    <div id="box" class="box">
+        <div class="small">
+            <img src="timg.gif" width="300px" alt="">
+            <div class="mask" style="display: none; left: 134px; top: 166px;"></div>
+        </div>
+        <div class="big" style="display: none;">
+            <img src="IMG_20201005_002140.jpg" width="640px" alt="" style="left: -263px; top: -363.56px;">
+            <div class="mask"></div>
+    </div>
+
+    <script>
+        var box = document.getElementById('box');
+        var smallBox = box.children[0];
+        var smallImage = smallBox.children[0];
+        var mask = smallBox.children[1];
+        var bigBox = box.children[1];
+        var bigImage = bigBox.children[0];
+
+        function getPage(ev) {
+            return {
+                pageX: ev.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft),
+                pageY: ev.clientY + (document.documentElement.scrollTop || document.body.scrollTop)
+            }
+        }
+        smallBox.onmouseenter = function () {
+            mask.style.display = 'block';
+            bigBox.style.display = 'block';
+        }
+        smallBox.onmouseleave = function () {
+            mask.style.display = 'none';
+            bigBox.style.display = 'none';
+        }
+        smallBox.onmousemove = function (ev) {
+            ev = ev || window.event;
+            var x = getPage(ev).pageX - box.offsetLeft;
+            var y = getPage(ev).pageY - box.offsetTop;
+
+            x -= mask.offsetWidth / 2;
+            y -= mask.offsetHeight / 2;
+
+            x = x < 0 ? 0 : x;
+            y = y < 0 ? 0 : y;
+            
+            var maxX = smallBox.offsetWidth - mask.offsetWidth;
+            var maxY = smallBox.offsetHeight - mask.offsetHeight;
+            x = x > maxX ? maxX : x;
+            y = y > maxY ? maxY : y;
+
+            mask.style.left = x + 'px';
+            mask.style.top = y + 'px';
+
+            var bigMaxX = bigImage.offsetWidth - bigBox.offsetWidth;
+            var bigMaxY = bigImage.offsetHeight - bigBox.offsetHeight;
+
+            var bigImageX = x * bigMaxX / maxX;
+            var bigImageY = y * bigMaxY / maxY;
+
+            bigImage.style.left = -bigImageX + 'px';
+            bigImage.style.top = -bigImageY + 'px';
+        }
+	</script>
+</div></aside>
+
+<section> <h1>自我介绍:</h1>
+        <pre>            <h2>
+                  姓名：罗承天
+                  学号：201916180224
+                  我是国家一级抬杠运动员兼世界顶级退堂鼓选手和贫穷世界杯冠军以及拖延症吉尼斯世界纪录保持者，吃鸡王者不在话下，来自湖南，地地道道得客家人。
+                  
+                  左下方更精彩，点进来看看吧！
+        </h2>
+</pre></section>
+
+
+<img src="IMG_20201005_002140.jpg" id="AD" alt="广告" style="top: 30px; left: 834px;">
+
+<script>
+    var ad = document.getElementById("AD");
+
+
+
+    var screenHeight = document.documentElement.clientHeight;
+    var diffHeight = screenHeight - ad.clientHeight;
+
+
+    var screenWidth = document.documentElement.clientWidth;
+    var diffWidth = screenWidth - ad.clientWidth;
+
+    ys = Math.round(Math.random() * diffHeight);
+    ad.style.top = ys + "px";
+    yv = 5;
+
+    xs = Math.round(Math.random() * diffWidth);
+    ad.style.left = xs + "px";
+    xv = 5;
+
+    setInterval( function () {
+ 
+        ys += yv;
+        if (ys >= diffHeight) {
+            ys = diffHeight;
+            yv = -yv;
+        }
+        if (ys <= 0) {
+            ys = 0;
+            yv = -yv;
+        }
+        ad.style.top = ys + "px";
+
+        xs += xv;
+        if (xs >= diffWidth) {
+            xs = diffWidth;
+            xv = -xv;
+        }
+        if (xs <= 0) {
+            xs = 0;
+            xv = -xv;
+        }
+        ad.style.left = xs + "px";
+    }, 200);
+</script>
+<footer><a href="zuoye.html" id="">这里帅哥看过来</a></footer>
+
+</body></html>
